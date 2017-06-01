@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title></title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+<form id="someForm">
+	<div>
+		<input type="button" id="wopen" name="wopen" value="clickme">
+	</div>
+    <div>
+        <h1>it's a parent window</h1>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#wopen").click(function(event) {
+            var childWindow = window.open("windowchild.html", "cw");
+
+            childWindow.onload = function () {
+                alert("onload " + childWindow.name);
+            };
+
+            childWindow.onunload = function () {
+                alert("onunload " + childWindow.name);
+            };
+
+            childWindow.onbeforeunload = function () {
+                alert("onbeforeunload " + childWindow.name);
+            };
+        });
+    });
+</script>
+</body>
+</html>

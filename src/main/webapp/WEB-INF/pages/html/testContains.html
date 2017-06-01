@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title></title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+<form id="someForm">
+    <div id="proxyerror">
+        <h1>502 Proxy Error</h1>
+        <p>The proxy server received an invalid
+            response from an upstream server.<br />
+            The proxy server could not handle the request <em><a href="/drp/claim/saveClaim">POST&nbsp;/drp/claim/saveClaim</a></em>.<p>
+        Reason: <strong>Error reading from remote server</strong></p></p>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        var content = $("#proxyerror").html();
+        alert(content);
+
+        alert(content.indexOf("502 Proxy Error") != -1)
+
+    });
+</script>
+</body>
+</html>
