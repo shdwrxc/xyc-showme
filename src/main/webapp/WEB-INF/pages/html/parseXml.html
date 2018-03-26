@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "sample.xml",
+                dataType: "xml",
+                type: 'GET',
+//                timeout: 2000,
+                error: function (x) {
+                    alert("hello");
+                    alert(x);
+                },
+                success: function (xml) {
+                    $(xml).find("one").each(function (i) {
+                        var white = $(this).attr("white");
+                        var black = $(this).attr("black");
+                        var msg = $(this).children("msg").text();
+                        alert(white + black + msg);
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="showPlace"></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+
+    <SCRIPT LANGUAGE="JavaScript">
+        /* ActiveXObject需要ie，其他浏览器不支持 */
+        /* DOM对象 */
+        var xmlDoc;
+        /* 对象结点列表 */
+        var objNodeList;
+        /* 以one为标记的结点 */
+        var Node;
+        /* 消息 */
+        var msg;
+        /* 创建数组 */
+        var whites = new Array()
+
+        function JavaScriptReadXML() {
+            /* 创建DOM对象 */
+            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+            /* 非异步加载模式 */
+            xmlDoc.async = false;
+            /* 加载本地XML文件 */
+//            xmlDoc.load('D:\\project\\xyc-showme\\src\\main\\webapp\\WEB-INF\\pages\\html\\sample.xml');
+            xmlDoc.load('sample.xml');
+
+            /* 解析XML文件内容 */
+            if (xmlDoc.parseError.errorCode != 0) {
+                var myErr = xmlDoc.parseError;
+                document.write("You have error " + myErr.reason);
+            }
+            else {
+                objNodeList = xmlDoc.getElementsByTagName("one");
+                /* 读取总的结点数 */
+                for (var i = 0; i < objNodeList.length; i++) {
+                    Node = objNodeList[i];
+                    /* 各个结点逐个击破 */
+                    for (var k = 0; k < Node.childNodes.length; k++) {
+                        if (Node.childNodes[k].nodeName == "msg")
+                            msg = Node.childNodes[k].text;
+                    }
+                    whites.push(Node.getAttribute("white"))
+                    document.write(msg + "<br>");
+                    document.write("<br>");
+                }
+                for (i = 0; i < whites.length; i++) {
+                    document.write(whites[i] + "<br />")
+                }
+            }
+        }
+    </SCRIPT>
+</head>
+<body onload="JavaScriptReadXML()">
+</body>
+</html>
