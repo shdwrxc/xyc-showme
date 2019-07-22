@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <title></title>
+</head>
+<body>
+<form ng-app="formModule"  ng-controller="formControl">
+<input type="text" ng-model="what"/>
+    <div>
+        hello world
+    </div>
+</form>
+<script>
+    angular.module('formModule', [])
+        .controller('formControl', function($scope) {
+                alert("abc");
+                alert($scope.$name);
+                alert($scope.$dirty);
+        });
+</script>
+</body>
+</html>

@@ -18,4 +18,5 @@
     </context:component-scan>
 
     <import resource="classpath:spring-other.xml"/>
+    <import resource="classpath:spring-redis.xml"/>
 </beans>

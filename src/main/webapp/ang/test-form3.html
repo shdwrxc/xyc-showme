@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+</head>
+
+<body ng-controller="AppCtrl">
+<script>
+    var app = angular.module('app', []);
+
+    app.controller('AppCtrl', function($scope) {
+        $scope.person = {};
+    });
+</script>
+<script src="inputEmail.js"></script>
+<script src="InputEmailCtrl.js"></script>
+<script src="inputName.js"></script>
+<script src="InputNameCtrl.js"></script>
+<script src="inputAge.js"></script>
+<script src="InputAgeCtrl.js"></script>
+
+<form name="myForm" class="form-horizontal" novalidate>
+    <div class="form-group">
+        <input-name ng-model='person.name' required></input-name>
+    </div>
+
+    <div class="form-group">
+        <input-email ng-model='person.email' required></input-email>
+    </div>
+
+    <div class="form-group">
+        <input-age ng-model='person.age' required></input-age>
+    </div>
+
+    <!-- Not using a directive -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Country</label>
+        <div class="col-sm-4" ng-class="{'has-error': myForm.country.$invalid}">
+            <input type="text" name="country" ng-model="person.country" class="form-control" required>
+            <span ng-show="myForm.country.$error.required" class="help-block">Can't be blank</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+            <button class="btn btn-primary" ng-disabled="myForm.$invalid">
+                <span class="glyphicon glyphicon-cloud-upload"></span> Save
+            </button>
+        </div>
+    </div>
+</form>
+
+Person: <pre>{{person | json}}</pre>
+
+Form $error: <pre>{{myForm.$error | json}}</pre>
+<p>Is the form valid?: {{myForm.$valid}}</p>
+
+<p>Is name valid?: {{myForm.name.$valid}}</p>
+<p>Is email valid?: {{myForm.email.$valid}}</p>
+<p>Is age valid?: {{myForm.age.$valid}}</p>
+<p>Is country valid?: {{myForm.country.$valid}}</p>
+</body>
+</html>
