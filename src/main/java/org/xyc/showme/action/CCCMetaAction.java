@@ -28,13 +28,13 @@ public class CCCMetaAction {
 
     @RequestMapping(value = "/data")
     public void one(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        byte[] bytes = redisBaseDao.getNativeBytes("hello");
+        byte[] bytes = redisBaseDao.getNativeBytes("world");
         System.out.println("bytes length " + bytes.length);
 
         response.setHeader("Content-Encoding", "gzip");
         response.setHeader("Content-Length", String.valueOf(bytes.length));
-        response.setHeader("Content-Type", "application/json");
-//        response.setHeader("Content-Type", "text/plain");
+//        response.setHeader("Content-Type", "application/json");
+        response.setHeader("Content-Type", "text/plain");
 
         OutputStream stream = response.getOutputStream();
         stream.write(bytes);

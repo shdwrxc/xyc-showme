@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+
+        window.location.href="closeself2.html";
+
+        function bye() {
+            console.log("hi");
+            if(confirm("sure?")) {
+                window.close();
+            }
+//            alert("hello");
+//            open(location, '_self').close();
+//            open(location, '_self').close();
+//            window.close();
+//            window.close();
+//            alert("world"); //会弹出来，然后关掉窗口
+        }
+
+        function openSth() {
+            window.open("http://localhost:8080/pages/closeself2.html");
+        }
+    </script>
+</head>
+<body>
+<input type="button" onclick="bye()" value="click me" />
+<input type="button" onclick="openSth()" value="open window" />
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#click1").bind("click", function () {
+                $.get("/click/click1", function(data) {
+                    $("#show1").html(data);
+                });
+            });
+            $("#click3").bind("click", function () {
+                $.get("/click/click3", function(data) {
+                    $("#show3").html(data);
+                });
+            })
+        });
+
+        function init() {
+            $.get("/click/click2", function(data) {
+                $("#show2").html(data);
+            });
+        }
+    </script>
+</head>
+<body onload="init();">
+<div>
+    <a href="#" onclick="window.close();">关闭</a>
+</div>
+<div>
+    <a href="#show4">跳到show4</a>
+</div>
+<div>
+    <a href="javascript:void(0);" onclick="javascript:document.getElementById('show5').scrollIntoView()">跳到show5</a>
+</div>
+<a href="javascript:void(0);" id="click1">hello</a>
+<div id="show1"></div>
+<a href="javascript:void(0);" id="click2">hello</a>
+<div id="show2"></div>
+<a href="javascript:void(0);" id="click3">hello</a>
+<div id="show3"></div>
+<div id="show4">
+    <pre>
+    这是
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    第不知道多少个月了
+    </pre>
+</div>
+<div id="show5">
+    <pre>
+    这又是
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    第不知道多少个月了
+    </pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function getSky() {
+            return sessionStorage.sky;
+        }
+
+        function setSky() {
+            sessionStorage.sky = "hello";
+        }
+
+        function helloSky() {
+            var sky = getSky();
+            alert(sky);
+            if(sky) {
+                alert(sky + " if sky is true");
+            } else {
+                alert(sky + " if sky is false");
+            }
+            if(!sky) {
+                alert(sky + " if !sky is true");
+            } else {
+                alert(sky + " if !sky is false");
+            }
+            var i1 = 0;
+            var i2 = 1;
+            var s1 = "";
+            var s2 = null;
+            var s3 = "a";
+            var s4 = " ";
+
+            if(i1) alert(i1 + " is true"); else alert(i1 + " is false");
+            if(i2) alert(i2 + " is true"); else alert(i2 + " is false");
+            if(s1) alert(s1 + " is true"); else alert(s1 + " is false");
+            if(s2) alert(s2 + " is true"); else alert(s2 + " is false");
+            if(s3) alert(s3 + " is true"); else alert(s3 + " is false");
+            if(s4) alert(s4 + " is true"); else alert(s4 + " is false");
+        }
+    </script>
+</head>
+<body>
+<div align="center">
+<a href="javascript:void(0)" onclick="helloSky();" >click me</a>
+</div>
+</body>
+</html>
